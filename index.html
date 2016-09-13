@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css" />
-    <title>Change Counter</title>
+    <title>Payroll with Overtime</title>
     <meta charset="utf-8">
     <!-- Bootstrap 3 is mobile-first -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,10 +15,12 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <!---->
+    <!-- .container-fluid spanning the entire width of viewport -->
     <div class="container-fluid">
+      <!-- jumbotron inside container to NOT extend to edge of screen -->
       <div class="jumbotron">
         <h2 class="text-center">Payroll with Overtime</h2>
+        <!-- form element defines a form that is used to collect user input -->
         <form>
           <div class="form-group">
             <label for="hoursWorked">Hours worked:</label>
@@ -28,14 +30,33 @@
             <label for="hourlyPayRate">Hourly pay rate:</label>
             <input id="hourlyPayRate" class="form-control" type="number" onclick="computePayroll" placeholder="Enter pay rate" />
           </div>
-          <button id="myBtn" type="button" class="btn btn-primary">Calculate Gross Pay</button>
+          <!-- Trigger the modal with a button -->
+          <button id="myBtn" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+            Calculate Gross Pay
+          </button>
         </form>
-        <div class="container-fluid">
-          <h2 id="outGrossPay"></h2>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Gross pay:</h4>
+              </div>
+              <div class="modal-body">
+                <h2 id="outGrossPay"></h2>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
-
-
     </div>
     <!--http://getbootstrap.com/css/-->
     <!--http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_grid_ex1&stacked=h-->
